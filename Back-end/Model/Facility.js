@@ -1,4 +1,4 @@
-const mongoose =require('mongoose')
+const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 const facilitySchema= new Schema({
      name:{
@@ -13,6 +13,10 @@ const facilitySchema= new Schema({
         type: Number,
         required: true
      },
+     facType:{
+      type: String,
+      required: true
+   },
      regNumber:{
         type: String,
         required: true
@@ -20,7 +24,32 @@ const facilitySchema= new Schema({
      email:{
         type: String,
         required: true
-     }
+     },
+     workHours:{
+        type: Number,
+        required: true
+     },
+     startPatRegNum:{
+        type: Number,
+        required: true
+     },
+     category:{
+        type: String,
+        required: true
+     },
+     appType:{
+      type: String,
+      required: true
+     },
+     gstNum:{
+      type: String,
+      required: true
+     },
+     address:{
+      type: String,
+      required: true
+     },
+
 })
 
 module.exports = mongoose.model("Facility", facilitySchema)

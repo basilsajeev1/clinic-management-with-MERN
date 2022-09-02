@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose')
+
 mongoose.connect("mongodb+srv://admin:12345@cluster0.ug2slmy.mongodb.net/linsys?retryWrites=true&w=majority").then(()=>{
   console.log("Database connected")
 }).catch((err)=>{
