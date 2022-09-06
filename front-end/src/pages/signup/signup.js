@@ -1,12 +1,12 @@
 import React from 'react';
-import Header from '../../components/header/Header';
+import LoginHeader from '../../components/loginHeader/loginHeader';
 
 import Signup from '../../components/signup/Signup';
 
 function SignupPage() {
   return (
     <div>
-      <Header/>
+      <LoginHeader/>
       <Signup />
     </div>
   );

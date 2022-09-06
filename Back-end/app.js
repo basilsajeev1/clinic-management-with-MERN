@@ -4,6 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose')
+const cors = require('cors')
+const session = require('express-session')
+
+
 
 mongoose.connect("mongodb+srv://admin:12345@cluster0.ug2slmy.mongodb.net/linsys?retryWrites=true&w=majority").then(()=>{
   console.log("Database connected")
@@ -15,8 +19,8 @@ var ownerRouter = require('./routes/owner');
 
 var app = express();
 
-
-
+app.use(session({ secret: 'secretkey01', cookie: { maxAge: 600000 }, resave: false, saveUninitialized: true}))
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

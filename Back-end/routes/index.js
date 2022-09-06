@@ -4,8 +4,9 @@ const Owner = require('../Model/Owner')
 const bcrypt = require('bcrypt')
 
 
+
 router.post('/register', async function(req, res, next) {
-  //res.send("registered");
+  
   let owner;
   let encPassword = await bcrypt.hash(req.body.password,10)
   try{
@@ -20,10 +21,13 @@ router.post('/register', async function(req, res, next) {
     })
     await owner.save().then((result)=>{
       if(result){
+        
+        req.session.user= result
       return res.status(201).json({message:"Owner added successfully"})
       }
     }).catch((err)=>{
       if(err){
+      console.log(err)
       return res.status(500).json({message:"Unable to add owner"})
       }
     })
@@ -41,7 +45,8 @@ router.post('/login',   async function(req, res, next) {
       //console.log(ownerData[0])
       bcrypt.compare(req.body.password,ownerData[0].password).then((status)=>{
         if(status){
-            
+            req.session.user= ownerData[0]
+            // console.log(req.session.user)
             console.log("credentials are correct")
             return res.json({message:"credentials are correct"})
         }else{
