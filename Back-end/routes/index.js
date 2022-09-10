@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const Owner = require('../Model/Owner')
 const bcrypt = require('bcrypt')
-
+const jwt = require('jsonwebtoken')
 
 
 router.post('/register', async function(req, res, next) {
@@ -22,8 +22,9 @@ router.post('/register', async function(req, res, next) {
     await owner.save().then((result)=>{
       if(result){
         
-        req.session.user= result
-      return res.status(201).json({message:"Owner added successfully"})
+        // req.session.user= result
+        const token= jwt.sign({_id:result._id}, secrethere, {expiresIn:'1h'})
+      return res.status(201).json({message:"Owner added successfully",token})
       }
     }).catch((err)=>{
       if(err){
@@ -45,10 +46,11 @@ router.post('/login',   async function(req, res, next) {
       //console.log(ownerData[0])
       bcrypt.compare(req.body.password,ownerData[0].password).then((status)=>{
         if(status){
-            req.session.user= ownerData[0]
+            //req.session.user= ownerData[0]
+            const token= jwt.sign({_id:ownerData[0]._id}, "secrethere", {expiresIn:'1h'})
             // console.log(req.session.user)
             console.log("credentials are correct")
-            return res.json({message:"credentials are correct"})
+            return res.json({message:"credentials are correct" , token})
         }else{
             console.log("Credentials do not match")
             return res.json({message:"credentials do not match"})            
@@ -60,5 +62,11 @@ router.post('/login',   async function(req, res, next) {
   }
   })
 });
+
+router.get('/logout',(req,res)=>{
+   //req.session.destroy()
+   
+  return res.json({message:"Logout successful"})
+})
 
 module.exports = router;

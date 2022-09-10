@@ -1,56 +1,33 @@
 import React from 'react'
 import {Link} from "react-router-dom"
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const LoginHeader = () => {
   return (
-    <div>
-      <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-          
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item mx-2">
-                <a class="nav-link " aria-current="page" href="#">Contact</a>
-              </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link" href="#">Request Demo</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown mx-2">
-                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  
-                  Register
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">
-                    
-                    Patient
-                    
-                    </a></li>
-                  <li><a class="dropdown-item" href="#">
-                  <Link to="/registerOwner">
-                    Owner
-                    </Link>
-                    </a></li>
-                  
-                  <li><a class="dropdown-item" href="#">Doctor</a></li>
-                </ul>
-              </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link">
-                <Link to="/">
-                  Login
-                  </Link>
-                  </a>
-                
-              </li>
-            </ul>
-           
-          </div>
-        </div>
-      </nav>
-    </div>
+    <Navbar bg="light" expand="lg">
+    <Container>
+      
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto">
+          <Nav.Link href="#home">Contact</Nav.Link>
+          <Nav.Link href="#link">Request Demo</Nav.Link>
+        </Nav>
+        <Nav className="ms-auto">
+        <NavDropdown title="Register" id="basic-nav-dropdown">
+            <NavDropdown.Item href="#">Patient</NavDropdown.Item>
+            <NavDropdown.Item ><Link to="/registerOwner" style={{ textDecoration: 'inherit' }} >Owner</Link></NavDropdown.Item>
+            <NavDropdown.Item href="#">Doctor</NavDropdown.Item>
+          </NavDropdown>
+          <Nav.Link><Link to="/" style={{ textDecoration: 'none' }} >Login</Link></Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Container>
+  </Navbar>
+
   )
 }
 

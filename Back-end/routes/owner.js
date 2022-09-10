@@ -4,7 +4,7 @@ const ownerControllers = require('../controllers/owner-controllers')
 
 
 /* GET users listing. */
-router.get('/', ownerControllers.getFacilities);
+router.get('/', ownerControllers.tokenCheck, ownerControllers.getFacilities);
 
 router.post('/addClinic', ownerControllers.addFacilities);
 

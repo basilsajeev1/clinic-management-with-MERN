@@ -33,22 +33,22 @@ const Signup = () => {
   }
    
   return (
-    <div class="box">
-      <form class='form' onSubmit={handleSubmit}>
-        <h4 class="title">Owner Registration</h4>
-        <input class="input" type="text" name='name' autoComplete='off' required='true' placeholder='Name'
+    <div className="box">
+      <form className='form' onSubmit={handleSubmit}>
+        <h4 className="title">Owner Registration</h4>
+        <input className="input" type="text" name='name' autoComplete='off' required='true' placeholder='Name'
          value={name} onChange={(e)=>setName(e.target.value)}></input><br></br>
-        <input class="input" type="mobile" name='mobile' autoComplete='off' required='true' placeholder='Mobile' 
+        <input className="input" type="mobile" name='mobile' autoComplete='off' required='true' placeholder='Mobile' 
         value={mobile} onChange={(e)=>setMobile(e.target.value)}></input><br></br>
-        <input class="input" type="email" name='email' autoComplete='off' required='true' placeholder='Email' 
+        <input className="input" type="email" name='email' autoComplete='off' required='true' placeholder='Email' 
         value={email} onChange={(e)=>setEmail(e.target.value)}></input><br></br>
-        <input class="input" type="password" name='password' autoComplete='off' required='true' placeholder='Password' 
+        <input className="input" type="password" name='password' autoComplete='off' required='true' placeholder='Password' 
         value={password} onChange={(e)=>setPassword(e.target.value)}></input><br></br>
-        <input class="input" type="password" autoComplete='off' required='true' placeholder='Confirm Password' ></input><br></br>
-        <textarea class="address"  name='address' autoComplete='off' required='true' placeholder='Address' 
+        <input className="input" type="password" autoComplete='off' required='true' placeholder='Confirm Password' ></input><br></br>
+        <textarea className="address"  name='address' autoComplete='off' required='true' placeholder='Address' 
         value={address} onChange={(e)=>setAddress(e.target.value)}></textarea><br></br>
 
-        <button type='Submit' class='submitbtn'>Sign Up</button>
+        <button type='Submit' className='submitbtn'>Sign Up</button>
       </form>
       
     </div>

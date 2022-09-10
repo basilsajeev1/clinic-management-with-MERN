@@ -15,7 +15,8 @@ const Login = () => {
     }
     await axios.post('http://localhost:5000/login', loginData).then((res)=>{
       if(res){
-      console.log(res.data)
+      console.log(res.data.token)
+      sessionStorage.setItem("token", res.data.token)
       navigate('/owner/home')
       }
     }).catch((err)=>{
@@ -24,19 +25,19 @@ const Login = () => {
   }
 
   return (
-    <div class='box1'>
+    <div className='box1'>
       
       <div className="top">
-        <button class='topbutton'>Login</button>
-        <button class='topbutton'>Patient Login</button>
+        <button className='topbutton'>Login</button>
+        <button className='topbutton'>Patient Login</button>
       </div>
-      <img class='logo' src='https://keralatrading.com/tp/assets/images/treatpatientlogo.png' alt='logo'></img>
+      <img className='logo' src='https://keralatrading.com/tp/assets/images/treatpatientlogo.png' alt='logo'></img>
       <form onSubmit={handleSubmit}>
-      <input type='email' required='true' autoComplete='off' class='inputs' name='email' placeholder='Email' 
+      <input type='email' required='true' autoComplete='off' className='inputs' name='email' placeholder='Email' 
       value={email} onChange={(e)=>{setEmail(e.target.value)}}></input>
-      <input type='password' required='true' autoComplete='off' class='inputs' name='password' placeholder='Password' 
+      <input type='password' required='true' autoComplete='off' className='inputs' name='password' placeholder='Password' 
       value={password} onChange={(e)=>{setPassword(e.target.value)}}></input>
-      <button type='submit' class='logbtn' >Login</button>
+      <button type='submit' className='logbtn' >Login</button>
       </form>
     </div>
   )
