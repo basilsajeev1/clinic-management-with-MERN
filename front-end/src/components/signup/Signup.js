@@ -24,7 +24,7 @@ const Signup = () => {
     await axios.post('http://localhost:5000/register/', userData).then((res)=>{
       if(res){
       console.log(res.data);
-      
+      sessionStorage.setItem("token", res.data.token)
       navigate('/owner/home')
       }
     }).catch((err)=>{

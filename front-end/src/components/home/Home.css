@@ -1,11 +1,19 @@
 .box2{
     
-    width: 420px;
+    max-width: 420px;
+    min-width: 330px;
     height: 380px;
     border: 1px solid black;
     margin: auto;
-    margin-top: 65px;
-    margin-bottom: 40px;
+    margin-top: 30px;
+    margin-bottom: 10px;
     border-radius: 15px;
     padding-left: 9px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.facLogo{
+    width: 100px;
+    height: 100px;
 }

@@ -13,16 +13,16 @@ const LoginHeader = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link href="#home">Contact</Nav.Link>
-          <Nav.Link href="#link">Request Demo</Nav.Link>
+          <Nav.Link >Contact</Nav.Link>
+          <Nav.Link >Request Demo</Nav.Link>
         </Nav>
         <Nav className="ms-auto">
         <NavDropdown title="Register" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#">Patient</NavDropdown.Item>
+            <NavDropdown.Item >Patient</NavDropdown.Item>
             <NavDropdown.Item ><Link to="/registerOwner" style={{ textDecoration: 'inherit' }} >Owner</Link></NavDropdown.Item>
-            <NavDropdown.Item href="#">Doctor</NavDropdown.Item>
+            <NavDropdown.Item >Doctor</NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link><Link to="/" style={{ textDecoration: 'none' }} >Login</Link></Nav.Link>
+          <Nav.Link><Link to="/" style={{ textDecoration: 'none' }}>Login </Link></Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container>

@@ -33,9 +33,9 @@ const Login = () => {
       </div>
       <img className='logo' src='https://keralatrading.com/tp/assets/images/treatpatientlogo.png' alt='logo'></img>
       <form onSubmit={handleSubmit}>
-      <input type='email' required='true' autoComplete='off' className='inputs' name='email' placeholder='Email' 
+      <input type='email' required={true} autoComplete='off' className='inputs' name='email' placeholder='Email' 
       value={email} onChange={(e)=>{setEmail(e.target.value)}}></input>
-      <input type='password' required='true' autoComplete='off' className='inputs' name='password' placeholder='Password' 
+      <input type='password' required={true} autoComplete='off' className='inputs' name='password' placeholder='Password' 
       value={password} onChange={(e)=>{setPassword(e.target.value)}}></input>
       <button type='submit' className='logbtn' >Login</button>
       </form>

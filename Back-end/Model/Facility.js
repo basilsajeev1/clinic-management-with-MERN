@@ -5,6 +5,10 @@ const facilitySchema= new Schema({
         type: String,
         required: true
      },
+     owner:{
+      type: String,
+      required: true
+   },
      location:{
         type: String,
         required: true
@@ -30,8 +34,7 @@ const facilitySchema= new Schema({
         required: true
      },
      startPatRegNum:{
-        type: Number,
-        required: true
+        type: String
      },
      category:{
         type: String,
@@ -42,8 +45,7 @@ const facilitySchema= new Schema({
       required: true
      },
      gstNum:{
-      type: String,
-      required: true
+      type: String
      },
      address:{
       type: String,

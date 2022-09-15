@@ -8,14 +8,14 @@ import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
   const navigate= useNavigate();
-  const logout = async()=>{
-     await axios.get('http://localhost:5000/logout').then((res)=>{
-      console.log(res.data)
+  const logout = ()=>{
+    //  await axios.get('http://localhost:5000/logout').then((res)=>{
+    //   console.log(res.data)
       sessionStorage.removeItem("token")
       navigate('/')
-     }).catch((err)=>{
-      console.log(err)
-     })
+    //  }).catch((err)=>{
+    //   console.log(err)
+    //  })
   }
   return (
     <Navbar bg="light" expand="lg">
@@ -29,7 +29,7 @@ const Header = () => {
         </Nav>
         <Nav className="ms-auto">
         
-          <Nav.Link><Link to="/logout" style={{ textDecoration: 'none' }} onClick={logout}>Logout</Link></Nav.Link>
+          <Nav.Link style={{ textDecoration: 'none' }} onClick={logout}>Logout</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container>
