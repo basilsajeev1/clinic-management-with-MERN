@@ -19,30 +19,35 @@ const AddClinic = () => {
     const [appType, setAppType] = useState('')
     const [gstNumber, setGstNumber] = useState('')
     const [address, setAddress] = useState('')
+    const [fileName, setFileName] = useState()
 
     const navigate = useNavigate();
     const handleSubmit = async (e) => {
 
         e.preventDefault()
-        const facData = {
-            "name": name,
-            "location": location,
-            "pincode": pincode,
-            "facType": facType,
-            "regNumber": regNumber,
-            "email": email,
-            "workHours": workHours,
-            "startPatRegNumber": startPatRegNumber,
-            "category": category,
-            "appType": appType,
-            "gstNumber": gstNumber,
-            "address": address
-        }
+        const formData = new FormData();
+            formData.append('name', name);
+            formData.append('location', location);
+            formData.append('pincode', pincode);
+            formData.append('facType', facType);
+            formData.append('regNumber', regNumber);
+            formData.append('email', email);
+            formData.append('workHours', workHours);
+            formData.append('startPatRegNumber', startPatRegNumber);
+            formData.append('category', category);
+            formData.append('appType', appType);
+            formData.append('gstNumber', gstNumber);
+            formData.append('address', address);
+            formData.append('logo', fileName);
+            
+        
+            
+        
         if (sessionStorage.token) {
             let token = sessionStorage.token
             let headers = {}
             headers = { 'Authorization': `Bearer ${token}` }
-            await axios.post('http://localhost:5000/owner/addClinic', facData, { headers }).then((res) => {
+            await axios.post('http://localhost:5000/owner/addClinic', formData, { headers }).then((res) => {
                 if (res) {
                     //console.log(res.data);
                     navigate('/owner/home')
@@ -57,7 +62,7 @@ const AddClinic = () => {
     return (
         <div className="container">
             <h3 style={{ "text-align": "center" }}>Add Facility</h3>
-            <form action="" encType='multipart/form-data' onSubmit={handleSubmit}>
+            <form encType='multipart/form-data' onSubmit={handleSubmit}>
                 <Row>
                     <Col xs={12} md={3}><input className="input1" type="text" placeholder='Facility Name' autoComplete='off' required='true' onChange={(e) => setName(e.target.value)}></input></Col>
                     <Col xs={12} md={3}><input className="input1" type="text" placeholder='Location' autoComplete='off' required='true' onChange={(e) => setLocation(e.target.value)}></input></Col>
@@ -94,7 +99,7 @@ const AddClinic = () => {
                 </Row>
                 <Row>
                     <Col style={{ "text-align": "right", "margin-bottom": "10px" }}><label >Facility Logo</label></Col>
-                    <Col style={{ "margin-bottom": "10px" }}><input type="file"></input></Col>
+                    <Col style={{ "margin-bottom": "10px" }}><input name="logo" type="file" onChange={(e)=>setFileName(e.target.files[0])}></input></Col>
                 </Row>
                 <Row>
                     <Col style={{ "text-align": "right" }}>

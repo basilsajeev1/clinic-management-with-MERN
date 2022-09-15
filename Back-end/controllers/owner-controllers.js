@@ -33,6 +33,7 @@ module.exports = {
                 appType: req.body.appType,
                 gstNum: req.body.gstNum,
                 address: req.body.address,
+                logo: req.file.originalname
 
             })
             await facilityDbServices.saveFacilitiesToDb(facility, res)
