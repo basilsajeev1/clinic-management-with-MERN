@@ -41,15 +41,12 @@ const Home = () => {
                   <img src="#" alt="logo" className='facLogo' />
                   <Row>
                     <Col><p>Location</p></Col>
-                    <Col><p>ssdfg</p></Col>
+                    <Col><p>{`${facility.location}`}</p></Col>
                   </Row>
-                  <Row>
-                    <Col><p>Contact</p></Col>
-                    <Col><p>ssdfg</p></Col>
-                  </Row>
+                  
                   <Row>
                     <Col><p>Email</p></Col>
-                    <Col><p>ssdfg</p></Col>
+                    <Col><p>{`${facility.email}`}</p></Col>
                   </Row>
                   <Link to="">View Facility</Link> &nbsp;
                   <Link to={{ pathname:`/owner/editclinic/${facility._id}`}}>Edit</Link> &nbsp;

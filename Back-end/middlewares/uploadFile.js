@@ -1,15 +1,19 @@
-const multer = require('multer')
+var multer = require('multer')
+var randomstring = require("randomstring");
 
 const storage = multer.diskStorage({
     destination:(req, file, callback)=>{
       callback(null, "./public/images/facilityimages")
     },
     filename:(req, file, callback)=>{
-      callback(null, file.originalname)
+      file.name = randomstring.generate();
+      callback(null, file.name)
     }
    
-  });
-const upload = multer({storage:storage});
+});
+const upload= multer({storage:storage});
+  
+
 
 
 exports.upload = upload;
