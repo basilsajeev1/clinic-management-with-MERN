@@ -1,6 +1,7 @@
 const Facility = require('../Model/Facility')
 const Owner = require('../Model/Owner')
 const facilityDbServices = require('../services/facilityDbServices')
+const uploadFile = require('../middlewares/uploadFile')
 
 module.exports = {
 
@@ -18,7 +19,13 @@ module.exports = {
     addFacilities: async (req, res) => {
 
         try {
-
+            var logo
+            if(req.file){
+                logo = req.file.name
+            }else{
+                logo= "empty"
+            }
+            // console.log ("body is"+req.body)
             let facility = new Facility({
                 name: req.body.name,
                 owner: req.user,
@@ -33,11 +40,11 @@ module.exports = {
                 appType: req.body.appType,
                 gstNum: req.body.gstNum,
                 address: req.body.address,
-                logo: req.file.name
+                logo: logo
 
             })
             await facilityDbServices.saveFacilitiesToDb(facility, res)
-
+            
 
 
         } catch {
@@ -53,6 +60,12 @@ module.exports = {
 
         try {
             let facId = req.params.id
+            //console.log(req.params.id)
+            if(req.file){
+                logo = req.file.name
+            }else{
+                logo= "empty"
+            }
             let facility={
                 name: req.body.name,
                 owner: req.body.owner,
@@ -67,6 +80,7 @@ module.exports = {
                 appType: req.body.appType,
                 gstNum: req.body.gstNum,
                 address: req.body.address,
+                logo: logo
             }
             await facilityDbServices.updateFacilityInDb(facId, facility, res)
 

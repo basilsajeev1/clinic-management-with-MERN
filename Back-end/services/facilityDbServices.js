@@ -5,6 +5,7 @@ module.exports = {
 
         let facilities = await Facility.find({ "owner": user })
         if (facilities) {
+            
             return res.status(200).json({ facilities })
         } else {
             return res.status(404).json({ message: "Facilities not found" })

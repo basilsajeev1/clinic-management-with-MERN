@@ -38,7 +38,7 @@ const Home = () => {
               <Col xs={12} lg={4}>
                 <div className='box2'>
                   <h2>{`${facility.name}`}</h2>
-                  <img src="#" alt="logo" className='facLogo' />
+                  <img src={`http://localhost:5000/images/facilityimages/${facility.logo}`} alt="logo" className='facLogo' />
                   <Row>
                     <Col><p>Location</p></Col>
                     <Col><p>{`${facility.location}`}</p></Col>

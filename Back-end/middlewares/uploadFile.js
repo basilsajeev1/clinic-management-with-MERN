@@ -3,11 +3,18 @@ var randomstring = require("randomstring");
 
 const storage = multer.diskStorage({
     destination:(req, file, callback)=>{
-      callback(null, "./public/images/facilityimages")
+      if(file){
+        callback(null, "./public/images/facilityimages")
+      }
+      
     },
     filename:(req, file, callback)=>{
-      file.name = randomstring.generate();
-      callback(null, file.name)
+      if(file){
+
+        file.name = req.user+ Date.now() +".jpg";      
+        callback(null, file.name)
+      }
+      
     }
    
 });

@@ -47,6 +47,7 @@ const AddClinic = () => {
             let token = sessionStorage.token
             let headers = {}
             headers = { 'Authorization': `Bearer ${token}` }
+            
             await axios.post('http://localhost:5000/owner/addClinic', formData, { headers }).then((res) => {
                 if (res) {
                     //console.log(res.data);
