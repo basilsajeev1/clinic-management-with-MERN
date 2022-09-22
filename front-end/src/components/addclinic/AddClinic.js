@@ -1,7 +1,7 @@
 import React from 'react'
 import Col from 'react-bootstrap/esm/Col'
 import Row from 'react-bootstrap/esm/Row'
-import './AddClinic.css'
+import styles from './AddClinic.module.css'
 import axios from 'axios'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -55,6 +55,7 @@ const AddClinic = () => {
                 }
             }).catch((err) => {
                 console.log(err)
+                navigate('/')
             })
         } else {
             navigate('/')
@@ -62,13 +63,13 @@ const AddClinic = () => {
     }
     return (
         <div className="container">
-            <h3 style={{ "text-align": "center" }}>Add Facility</h3>
+            <h3 className={styles.title}>Add Facility</h3>
             <form encType='multipart/form-data' onSubmit={handleSubmit}>
                 <Row>
-                    <Col xs={12} md={3}><input className="input1" type="text" placeholder='Facility Name' autoComplete='off' required='true' onChange={(e) => setName(e.target.value)}></input></Col>
-                    <Col xs={12} md={3}><input className="input1" type="text" placeholder='Location' autoComplete='off' required='true' onChange={(e) => setLocation(e.target.value)}></input></Col>
-                    <Col xs={12} md={3}><input className="input1" type="number" placeholder='Pincode' autoComplete='off' required='true' onChange={(e) => setPincode(e.target.value)}></input></Col>
-                    <Col xs={12} md={3}><select className="input1" required='true' onChange={(e) => setFacType(e.target.value)}>
+                    <Col xs={12} md={3}><input className={styles.input1} type="text" placeholder='Facility Name' autoComplete='off' required='true' onChange={(e) => setName(e.target.value)}></input></Col>
+                    <Col xs={12} md={3}><input className={styles.input1} type="text" placeholder='Location' autoComplete='off' required='true' onChange={(e) => setLocation(e.target.value)}></input></Col>
+                    <Col xs={12} md={3}><input className={styles.input1} type="number" placeholder='Pincode' autoComplete='off' required='true' onChange={(e) => setPincode(e.target.value)}></input></Col>
+                    <Col xs={12} md={3}><select className={styles.input1} required='true' onChange={(e) => setFacType(e.target.value)}>
                         <option value="" disabled selected>Facility Type</option>
                         <option value="Clinic">Clinic</option>
                         <option value="Hospital">Hospital</option>
@@ -76,34 +77,34 @@ const AddClinic = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={12} md={3}><input className="input1" type="text" placeholder='Registration Number' autoComplete='off' required='true' onChange={(e) => setRegNumber(e.target.value)}></input></Col>
-                    <Col xs={12} md={3}><input className="input1" type="email" placeholder='Email' autoComplete='off' required='true' onChange={(e) => setEmail(e.target.value)}></input></Col>
-                    <Col xs={12} md={3}><input className="input1" type="number" placeholder='Working Hours' autoComplete='off' required='true' onChange={(e) => setWorkHours(e.target.value)}></input></Col>
-                    <Col xs={12} md={3}><input className="input1" type="text" placeholder='Starting Patient Registration Number' autoComplete='off' onChange={(e) => setStartPatRegNumber(e.target.value)}></input></Col>
+                    <Col xs={12} md={3}><input className={styles.input1} type="text" placeholder='Registration Number' autoComplete='off' required='true' onChange={(e) => setRegNumber(e.target.value)}></input></Col>
+                    <Col xs={12} md={3}><input className={styles.input1} type="email" placeholder='Email' autoComplete='off' required='true' onChange={(e) => setEmail(e.target.value)}></input></Col>
+                    <Col xs={12} md={3}><input className={styles.input1} type="number" placeholder='Working Hours' autoComplete='off' required='true' onChange={(e) => setWorkHours(e.target.value)}></input></Col>
+                    <Col xs={12} md={3}><input className={styles.input1} type="text" placeholder='Starting Patient Registration Number' autoComplete='off' onChange={(e) => setStartPatRegNumber(e.target.value)}></input></Col>
                 </Row>
                 <Row>
-                    <Col xs={12} md={4}><select className="input2" required='true' onChange={(e) => setCategory(e.target.value)}>
+                    <Col xs={12} md={4}><select className={styles.input2} required='true' onChange={(e) => setCategory(e.target.value)}>
                         <option value="" disabled selected>Category</option>
                         <option value="Allopathy">Allopathy</option>
                         <option value="Homeopathy">Homeopathy</option>
                     </select></Col>
-                    <Col xs={12} md={4}><select className="input2" required='true' onChange={(e) => setAppType(e.target.value)}>
+                    <Col xs={12} md={4}><select className={styles.input2} required='true' onChange={(e) => setAppType(e.target.value)}>
                         <option value="" disabled selected>Appointment Type</option>
                         <option value="Clinic Level">Clinic Level</option>
                         <option value="Doctor Level">Doctor Level</option>
                     </select></Col>
-                    <Col xs={12} md={4}><input className="input2" type="text" placeholder='GST Number' autoComplete='off' onChange={(e) => setGstNumber(e.target.value)} ></input></Col>
+                    <Col xs={12} md={4}><input className={styles.input2} type="text" placeholder='GST Number' autoComplete='off' onChange={(e) => setGstNumber(e.target.value)} ></input></Col>
 
                 </Row>
                 <Row>
-                    <Col><textarea placeholder='Address' style={{ "width": "100%", "height": "100px" }} autoComplete='off' required='true' onChange={(e) => setAddress(e.target.value)}></textarea></Col>
+                    <Col><textarea placeholder='Address' className={styles.address} autoComplete='off' required='true' onChange={(e) => setAddress(e.target.value)}></textarea></Col>
                 </Row>
                 <Row>
-                    <Col style={{ "text-align": "right", "margin-bottom": "10px" }}><label >Facility Logo</label></Col>
-                    <Col style={{ "margin-bottom": "10px" }}><input name="logo" type="file" onChange={(e)=>setFileName(e.target.files[0])}></input></Col>
+                    <Col className={styles.logoTitle}><label >Facility Logo</label></Col>
+                    <Col className={styles.logo}><input name="logo" type="file" onChange={(e)=>setFileName(e.target.files[0])}></input></Col>
                 </Row>
                 <Row>
-                    <Col style={{ "text-align": "right" }}>
+                    <Col className={styles.button}>
                         <button type='submit'>Submit</button>
                     </Col>
                     <Col>

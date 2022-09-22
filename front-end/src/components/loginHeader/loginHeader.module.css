@@ -1,0 +1,19 @@
+
+.container{
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+}
+.links{
+    color: #1173bc !important;
+    font-weight: bold !important;
+    
+}
+
+.link{
+    text-decoration: none !important;
+}
+
+.dropItem{
+    color: black;
+}
+

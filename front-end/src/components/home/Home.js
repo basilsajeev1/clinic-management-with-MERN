@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState} from 'react'
 import {useNavigate, Link} from 'react-router-dom'
-import './Home.css'
+import styles from './Home.module.css'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -21,6 +21,7 @@ const Home = () => {
 
       }).catch(error => {
         console.log(error)
+        navigate('/')
       })
     }else{
       navigate('/')
@@ -36,9 +37,9 @@ const Home = () => {
           return (
             
               <Col xs={12} lg={4}>
-                <div className='box2'>
+                <div className={styles.box}>
                   <h2>{`${facility.name}`}</h2>
-                  <img src={`http://localhost:5000/images/facilityimages/${facility.logo}`} alt="logo" className='facLogo' />
+                  <img className={styles.facLogo} src={`http://localhost:5000/images/facilityimages/${facility.logo}`} alt="logo"  />
                   <Row>
                     <Col><p>Location</p></Col>
                     <Col><p>{`${facility.location}`}</p></Col>

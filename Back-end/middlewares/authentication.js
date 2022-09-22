@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const tokenCheck = async(req,res,next)=>{
     let owner
+    try{
     if(req.headers.authorization){
     const token= req.headers.authorization.split(" ")[1]
     
@@ -17,11 +18,20 @@ const tokenCheck = async(req,res,next)=>{
             next();
         }else{
             return res.status(401).json({message:"User not verified"})
+            
         }
         
     }else{
         return res.status(401).json({message:"Unauthorised"})
+        
     }
+}catch(error){
+    
+    if(error){
+        console.log(error);
+        return res.status(401).json({message:"User not verified"})
+    }
+}
     
 }
 
