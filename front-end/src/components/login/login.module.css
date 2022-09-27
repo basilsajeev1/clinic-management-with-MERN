@@ -5,8 +5,7 @@
     height: 475px;
     border: 1px solid black;
     margin: auto;
-    margin-top: 65px;
-    margin-bottom: 40px;
+    margin-top: 122px;
     border-radius: 15px;
     padding-left: 9px;
     background-color: white;
@@ -16,17 +15,27 @@
 .top{
     display: flex;
 }
-.topbutton{
+.topbutton1{
+    width: 200px;
+    height: 44px;
+    margin-top: 5px;
+    background-color: #192048;
+    border: none;
+    color: #fafafa;
+}
+.topbutton2{
     width: 200px;
     height: 44px;
     margin-top: 5px;
     background-color: #3f51b5;
+    border: none;
+    color:#fafafa;
 }
 .logo{
     width: 130px;
     height: 135px;
     display: block;
-    margin-left: auto;
+    margin-left: 134px;
     margin-right: auto;
 }
 .span{
@@ -42,15 +51,15 @@
     margin-top: 2px;
     margin-bottom: 15px;
     border-width: 0.1px;
+    color:black;
+   
 }
 
-.inputs:focus{
-    outline-color: #3f51b5;
-}
+
 
 .logbtn{
-    width: 100px;
-    height: 40px;
+    width: 69px;
+    height: 36px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
@@ -72,6 +81,10 @@
     line-height: 1.42857143;
     border-radius: 4px;
 
+}
+
+.logbtn:hover{
+    background-color: rgb(30, 133, 11);
 }
 
 
@@ -98,6 +111,29 @@
     z-index: -1;
 }
 
+.textOnInput input[type='email']{
+    border-color: rgba(0,0,0,.12) ;
+    caret-color: #3f51b5 !important;
+    
+}
+.textOnInput input[type='email']:hover{
+    border-color: rgba(0,0,0,.87) ;
+}
+.textOnInput input[type='email']:focus{
+    outline-color: rgb(16, 48, 99) ;
+}
+
+.textOnInput input[type='password']{
+    border-color: rgba(0,0,0,.12) ;
+    caret-color: #3f51b5 !important;
+}
+.textOnInput input[type='password']:hover{
+    border-color: rgba(0,0,0,.87) !important;
+}
+.textOnInput input[type='password']:focus{
+    outline-color: rgb(16, 48, 99) !important;
+}
+
 label {
     font-size: 10px;
     font-weight: 500;
@@ -113,7 +149,7 @@ label {
 }
 
 .forgot{
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
     color: black;
     margin-left: 132px;
@@ -125,3 +161,11 @@ label {
     text-decoration: none !important;
     color:black;
 }
+
+.rememberdiv input[type='checkbox']{
+    accent-color: #ff4081;
+}
+
+.red::-webkit-input-placeholder {
+    color: red;
+ }

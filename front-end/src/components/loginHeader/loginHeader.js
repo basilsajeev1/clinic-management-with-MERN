@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link } from "react-router-dom"
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import styles from './loginHeader.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import {faRightToBracket} from '@fortawesome/free-solid-svg-icons'
 
 const LoginHeader = () => {
   return (
@@ -17,12 +20,12 @@ const LoginHeader = () => {
           <Nav.Link className={styles.links}>Request Demo</Nav.Link>
         </Nav>
         <Nav  >
-          <NavDropdown  title={<span className={styles.links}>Register</span>} >
+          <NavDropdown className={styles.select} title={<><span className={styles.links}>Register <FontAwesomeIcon icon={faAngleDown} /></span></>} >
             <NavDropdown.Item >Patient</NavDropdown.Item>
             <NavDropdown.Item ><Link className={`${styles.link} ${styles.dropItem}`} to="/registerOwner" >Owner</Link></NavDropdown.Item>
             <NavDropdown.Item >Doctor</NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link className={styles.links}><Link className={styles.link} to="/" >Login </Link></Nav.Link>
+          <Nav.Link ><Link className={styles.links} to="/" ><FontAwesomeIcon icon={faRightToBracket} className="me-1"/>Login </Link></Nav.Link>
         </Nav>
       </Navbar.Collapse>
     

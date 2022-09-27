@@ -3,9 +3,10 @@
     height: 600px;
     border: 1px solid black;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 125px;
     margin-bottom: 40px;
     border-radius: 15px;
+    background-color: white;
 }
 .form{
     text-align: center;
