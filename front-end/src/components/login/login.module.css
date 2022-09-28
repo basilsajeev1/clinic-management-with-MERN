@@ -10,7 +10,8 @@
     padding-left: 9px;
     background-color: white;
     border: none;
-    box-shadow: 0 1px 5px grey
+    box-shadow: 0 1px 5px grey;
+    position:relative;
 }
 .top{
     display: flex;
@@ -42,25 +43,37 @@
     margin-left: 163px;
     color: green;
 }
-.inputs{
+.inputs1{
     width: 400px;
     height: 50px;
     border-radius: 5px;
-    margin-top: 2px;
+    /* margin-top: 2px;
     margin-right: 2px;
     margin-top: 2px;
-    margin-bottom: 15px;
+    margin-bottom: -6px; */
     border-width: 0.1px;
     color:black;
+    
+    
    
 }
-
-
+.inputs2{
+    width: 400px;
+    height: 50px;
+    border-radius: 5px;
+    /* margin-top: 2px;
+    margin-right: 2px;
+    margin-top: 2px;
+    margin-bottom: -6px; */
+    border-width: 0.1px;
+    color:black;  
+       
+}
 
 .logbtn{
     width: 69px;
     height: 36px;
-    margin-left: auto;
+    margin-left: 168px;
     margin-right: auto;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -88,11 +101,12 @@
 }
 
 
-.textOnInput {
-    position: relative;
+.textOnInput1 {
+    position: absolute;
+    bottom: 207px;
 }
 
-.textOnInput label {
+.textOnInput1 label {
     position: absolute;
     top: -6px;
     left: 10px;
@@ -100,7 +114,30 @@
     z-index: 1;
 }
 
-.textOnInput label:after {
+.textOnInput1 label:after {
+    content: " ";
+    background-color: #fff;
+    width: 100%;
+    height: 13px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+}
+.textOnInput2 {
+    position: absolute;
+    bottom: 135px;
+}
+
+.textOnInput2 label {
+    position: absolute;
+    top: -6px;
+    left: 10px;
+    padding: 2px;
+    z-index: 1;
+}
+
+.textOnInput2 label:after {
     content: " ";
     background-color: #fff;
     width: 100%;
@@ -111,26 +148,28 @@
     z-index: -1;
 }
 
-.textOnInput input[type='email']{
+
+.textOnInput1 input[type='email']{
     border-color: rgba(0,0,0,.12) ;
     caret-color: #3f51b5 !important;
+    margin-bottom: 4px;
     
 }
-.textOnInput input[type='email']:hover{
+.textOnInput1 input[type='email']:hover{
     border-color: rgba(0,0,0,.87) ;
 }
-.textOnInput input[type='email']:focus{
+.textOnInput1 input[type='email']:focus{
     outline-color: rgb(16, 48, 99) ;
 }
 
-.textOnInput input[type='password']{
+.textOnInput2 input[type='password']{
     border-color: rgba(0,0,0,.12) ;
     caret-color: #3f51b5 !important;
 }
-.textOnInput input[type='password']:hover{
+.textOnInput2 input[type='password']:hover{
     border-color: rgba(0,0,0,.87) !important;
 }
-.textOnInput input[type='password']:focus{
+.textOnInput2 input[type='password']:focus{
     outline-color: rgb(16, 48, 99) !important;
 }
 
@@ -142,6 +181,7 @@ label {
 }
 .rememberdiv{
     margin-left: 150px;
+    
 }
 .remember{
     font-size: 14px !important;
@@ -169,3 +209,36 @@ label {
 .red::-webkit-input-placeholder {
     color: red;
  }
+
+.reqLabel1{
+    color: red !important;
+    display:none;
+    position: absolute;
+    bottom: 183px;
+}
+.reqLabel2{
+    color: red !important;
+    display:none;
+    position: absolute;
+    bottom: 110px;
+}
+.reqEmailShow{
+    display: inline !important;
+}
+
+.reqPasswordShow{
+    display: inline !important;
+}
+
+.reqEmailHide{
+    display: none !important;
+}
+.reqPasswordHide{
+    display: none !important;
+}
+
+.bottom{
+    position:absolute;
+    bottom: 7px;
+}
+
